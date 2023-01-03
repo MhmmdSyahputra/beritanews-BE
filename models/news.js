@@ -24,6 +24,10 @@ const NewsSchema = mongoose.Schema({
     tag:{
         type: Array,
         required: false
+    },
+    tayang:{
+        type: Number,
+        required: true
     }
 })
 

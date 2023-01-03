@@ -10,6 +10,7 @@ router.post("/", async (req, res) => {
         gambarberita: req.body.gambarberita,
         isiBerita: req.body.isiBerita,
         tag: req.body.tag,
+        tayang: 0,
     })
 
     try {
@@ -58,6 +59,18 @@ router.put("/:newsId", async (req,res)=>{
             kategori: req.body.kategori,
             isiBerita: req.body.isiBerita,
             tag: req.body.tag,
+        })
+        res.json(newsupdate)
+    } catch (error) {
+        res.json({message:error})
+    }
+})
+
+//UPDATE TAYANG
+router.put("/tayang/:newsId", async (req,res)=>{
+    try {
+        const newsupdate = await News.updateOne({_id:req.params.newsId},{
+            $inc: { tayang: 1 } 
         })
         res.json(newsupdate)
     } catch (error) {
