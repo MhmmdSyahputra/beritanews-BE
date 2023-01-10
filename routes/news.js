@@ -4,7 +4,7 @@ const News = require('../models/news')
 const middlewareValidation = require('./middleware')
 
 //CREATE
-router.post("/", async (req, res) => {
+router.post("/", middlewareValidation, async (req, res) => {
     const newNewsPost = new News({
         judul: req.body.judul,
         kategori: req.body.kategori,
@@ -53,7 +53,7 @@ router.get("/cate/:newsId", async (req,res)=>{
 })
 
 //UPDATE
-router.put("/:newsId", async (req,res)=>{
+router.put("/:newsId",middlewareValidation, async (req,res)=>{
     try {
         const newsupdate = await News.updateOne({_id:req.params.newsId},{
             judul: req.body.judul,
@@ -80,7 +80,7 @@ router.put("/tayang/:newsId", async (req,res)=>{
 })
 
 //DELETE
-router.delete("/:newsId", async (req,res)=>{
+router.delete("/:newsId",middlewareValidation, async (req,res)=>{
     try {
         const newsDelete = await News.deleteOne({_id:req.params.newsId})
         res.json(newsDelete)
