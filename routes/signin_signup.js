@@ -61,25 +61,26 @@ router.post('/login', async (req, res) => {
 
 
 // MIDDLEWARE-------------------------------------------------------------------------------
-router.use((req, res, next) => {
-    // get token from header
-    const token = JSON.parse(req.headers['x-access-token']);
-    // console.log(token.token)
+// router.use((req, res, next) => {
+//     // get token from header
+//     const token = JSON.parse(req.headers['x-access-token']);
+//     // console.log(token.token)
 
-    // verify token
-    jwt.verify(token.token, JWT_SECRET, (error) => {
-        if (error) {
-            return res.status(401).json({ status: 'error', message: 'Token tidak valid' });
-        } else {
-            next();
-        }
-    });
-});
+//     // verify token
+//     jwt.verify(token.token, JWT_SECRET, (error) => {
+//         if (error) {
+//             return res.status(401).json({ status: 'error', message: 'Token tidak valid' });
+//         } else {
+//             next();
+//         }
+//     });
+// });
 
 // ROUTE YANG HANYA BISA AKSES SAMA ADMIN SAJA ATAU YG SUDAH LOGIN------------------------------
 
-router.post('/GetUser', async (req, res) => {
+router.post('/GetUser',middlewareValidation, async (req, res) => {
     const { token } = req.body
+    console.log('masuk');
     // console.log(token);
 
     try {

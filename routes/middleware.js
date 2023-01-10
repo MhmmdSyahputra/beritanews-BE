@@ -1,4 +1,9 @@
+// middlewareValidation.js 
 // MIDDLEWARE-------------------------------------------------------------------------------
+var jwt = require('jsonwebtoken');
+const JWT_SECRET = 'eriyfbercbieobu3hrurebuberHBububUOBUOUBuo3728u'
+
+
 const middlewareValidation = (req,res,next) =>{
     // get token from header
         const token = JSON.parse(req.headers['x-access-token']);
