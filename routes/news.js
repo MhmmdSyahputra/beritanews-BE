@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express();
 const News = require('../models/news')
+const middlewareValidation = require('./middleware')
 
 //CREATE
 router.post("/", async (req, res) => {

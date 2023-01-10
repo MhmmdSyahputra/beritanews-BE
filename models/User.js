@@ -19,4 +19,4 @@ const NewsSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Registrasi',NewsSchema)
+module.exports = mongoose.model('User',NewsSchema)

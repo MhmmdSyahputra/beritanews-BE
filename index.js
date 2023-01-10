@@ -7,7 +7,7 @@ const cors = require("cors");
 //import routers
 const news = require("./routes/news");
 const category = require("./routes/category");
-const registrasi = require("./routes/signin_signup");
+const User = require("./routes/signin_signup");
 
 //middleware
 app.use(bodyParser());
@@ -19,26 +19,8 @@ app.use(cors());
 //   next();
 // });
 
-// router.post("/login", async (req, res) => {
-//   // Cari pengguna dengan email yang diberikan
-//   const user = await User.findOne({ email: req.body.email });
 
-//   // Jika pengguna tidak ditemukan, kirimkan pesan error
-//   if (!user) return res.status(400).send("Email or password is invalid");
-
-//   // Jika pengguna ditemukan, lakukan verifikasi password
-//   const validPassword = await bcrypt.compare(req.body.password, user.password);
-
-//   // Jika password tidak cocok, kirimkan pesan error
-//   if (!validPassword) return res.status(400).send("Email or password is invalid");
-
-//   // Jika password cocok, buat token dan kirimkan kembali ke client
-//   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-//   res.send(token);
-// });
-
-
-app.use("/system",registrasi)
+app.use("/system",User)
 app.use("/news", news);
 app.use("/category", category);
 

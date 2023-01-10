@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express();
-const Registrasi = require('../models/registrasi')
+const User = require('../models/User')
+const middlewareValidation = require('./middleware')
 const bcryptjs = require('bcryptjs')
 var jwt = require('jsonwebtoken');
 
@@ -13,7 +14,7 @@ router.post("/registrasi", async (req, res) => {
     
     const encrypPassword = await bcryptjs.hash(password, 10)
     
-    const newUser = new Registrasi({
+    const newUser = new User({
         firstname: firstname,
         lastname: lastname,
         email: email,
@@ -21,7 +22,7 @@ router.post("/registrasi", async (req, res) => {
     })
 
     try {
-        const olduser = await Registrasi.findOne({ email })
+        const olduser = await User.findOne({ email })
         if (olduser) {
             return res.send({ error: "Email Sudah Dipakai" });
         }
@@ -39,7 +40,7 @@ router.post("/registrasi", async (req, res) => {
 router.post('/login', async (req, res) => {
     const { email, password } = req.body
 
-    const user = await Registrasi.findOne({ email })
+    const user = await User.findOne({ email })
 
     if (!user) {
         return res.json({ status: 'error', message: 'Email Tidak Terdaftar!' })
@@ -57,6 +58,7 @@ router.post('/login', async (req, res) => {
 
     res.json({ status: 'error', message: 'Password Salah!' })
 })
+
 
 // MIDDLEWARE-------------------------------------------------------------------------------
 router.use((req, res, next) => {
@@ -76,7 +78,7 @@ router.use((req, res, next) => {
 
 // ROUTE YANG HANYA BISA AKSES SAMA ADMIN SAJA ATAU YG SUDAH LOGIN------------------------------
 
-router.post('/onlyAdmin', async (req, res) => {
+router.post('/GetUser', async (req, res) => {
     const { token } = req.body
     // console.log(token);
 
@@ -85,7 +87,7 @@ router.post('/onlyAdmin', async (req, res) => {
 
         const userEmail = user.email
 
-        Registrasi.findOne({ email: userEmail })
+        User.findOne({ email: userEmail })
             .then((data) => {
                 res.send({ status: 'ok', data: data })
             }).catch((err) => {
