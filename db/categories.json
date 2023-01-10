@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "638253a2fcddb744d28f6805"
+  },
+  "nameKategory": "Teknologi",
+  "gambarKategory": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dGVjaG5vbG9neXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Teknologi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638253ecfcddb744d28f6808"
+  },
+  "nameKategory": "Ekonomi",
+  "gambarKategory": "https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWNvbm9teXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Ekonomi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63825414fcddb744d28f680a"
+  },
+  "nameKategory": "Politik",
+  "gambarKategory": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9saXRpY3N8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal politik",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63825514fcddb744d28f680c"
+  },
+  "nameKategory": "Kesehatan",
+  "gambarKategory": "https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Kesehatan",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63825569fcddb744d28f680e"
+  },
+  "nameKategory": "Sports",
+  "gambarKategory": "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb3RiYWxsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Sports",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638255d1fcddb744d28f6810"
+  },
+  "nameKategory": "Otomotif",
+  "gambarKategory": "https://images.unsplash.com/photo-1567789884554-0b844b597180?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXV0b21vdGl2ZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Otomotif",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6395b53733959549b0e50a13"
+  },
+  "nameKategory": "Bola",
+  "gambarKategory": "https://plus.unsplash.com/premium_photo-1658506638118-524a66dc5cee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vdGJhbGx8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Bola",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b4684f25fa5fe3af972aae"
+  },
+  "nameKategory": "Kriminal",
+  "gambarKategory": "https://media.istockphoto.com/id/980041056/photo/man-in-prison-hands-of-behind-hold-steel-cage-jail-bars-offender-criminal-locked-in-jail.jpg?b=1&s=170667a&w=0&k=20&c=KWhKi_4tcB7riwG7sGhGcd2XF50rkXCl2EzeOytwnE8=",
+  "keteranganKategory": "ini kategori berkaitan dengan hal Bola"
+}]
