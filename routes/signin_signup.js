@@ -80,7 +80,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/GetUser',middlewareValidation, async (req, res) => {
     const { token } = req.body
-    console.log('masuk');
+    // console.log('masuk');
     // console.log(token);
 
     try {

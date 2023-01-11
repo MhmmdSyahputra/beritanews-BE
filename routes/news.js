@@ -16,7 +16,7 @@ router.post("/", middlewareValidation, async (req, res) => {
 
     try {
         const news = await newNewsPost.save()
-        res.json(news)
+        res.json({status:'ok', message: 'Data Berhasil Disimpan'})
     } catch (error) {
         res.json({message: error})
     }
@@ -61,7 +61,7 @@ router.put("/:newsId",middlewareValidation, async (req,res)=>{
             isiBerita: req.body.isiBerita,
             tag: req.body.tag,
         })
-        res.json(newsupdate)
+        res.json({status:'ok', message: 'Data Berhasil Di Update'})
     } catch (error) {
         res.json({message:error})
     }
@@ -83,7 +83,7 @@ router.put("/tayang/:newsId", async (req,res)=>{
 router.delete("/:newsId",middlewareValidation, async (req,res)=>{
     try {
         const newsDelete = await News.deleteOne({_id:req.params.newsId})
-        res.json(newsDelete)
+        res.json({status:'ok', message: 'Data Berhasil Di Hapus'})
     } catch (error) {
         res.json({message:error})
     }
