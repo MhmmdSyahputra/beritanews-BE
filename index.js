@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require('dotenv').config();
 const cors = require("cors");
 
 //import routers
@@ -33,6 +34,6 @@ db.once("open", () => {
   console.log("Database Is Connect");
 });
 
-app.listen(3003, () => {
-  console.log("server is running in 3003");
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`server is running in ${process.env.PORT || 3001}`);
 });
