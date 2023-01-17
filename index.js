@@ -26,7 +26,7 @@ app.use("/news", news);
 app.use("/category", category);
 
 //connect to DB
-mongoose.connect("mongodb://localhost:27017/PortalBerita");
+mongoose.connect(process.env.MYDB);
 let db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "Database Connect Error"));
