@@ -18,8 +18,12 @@ const NewsSchema = mongoose.Schema({
         required: true 
     },
     tglCreate:{
-        type: Date,
+        type: String,
         default: Date.now
+    },
+    penulis:{
+        type: String,
+        required:true
     },
     tag:{
         type: Array,

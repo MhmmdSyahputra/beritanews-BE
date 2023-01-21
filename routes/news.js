@@ -8,12 +8,14 @@ const options = {timeZone: 'Asia/Jakarta', hour12: false};
 const time = date.toLocaleString("id-ID", options);
 
 //CREATE
-router.post("/", middlewareValidation, async (req, res) => {
+router.post("/",middlewareValidation, async (req, res) => {
     const newNewsPost = new News({
         judul: req.body.judul,
         kategori: req.body.kategori,
         gambarberita: req.body.gambarberita,
         isiBerita: req.body.isiBerita,
+        penulis: req.body.penulis,
+        tglCreate: time,
         tag: req.body.tag,
         tayang: 0,
         komentar: []
@@ -62,11 +64,12 @@ router.get("/", async (req,res)=>{
         res.json({message:error})
     }
 })
-
+ 
 //READDETAIL
 router.get("/:newsId", async (req,res)=>{
     try {
-        const news = await News.find({_id:req.params.newsId})
+        const id = req.params.newsId
+        const news = await News.find({_id: id })
         res.json(news)
     } catch (error) {
         res.json({message:error})
