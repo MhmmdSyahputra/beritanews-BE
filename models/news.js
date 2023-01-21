@@ -18,13 +18,35 @@ const NewsSchema = mongoose.Schema({
         required: true 
     },
     tglCreate:{
-        type: Date,
+        type: String,
         default: Date.now
+    },
+    penulis:{
+        type: String,
+        required:true
     },
     tag:{
         type: Array,
         required: false
-    }
+    },
+    tayang:{
+        type: Number,
+        required: true
+    },
+    komentar: [{
+        nama: {
+          type: String,
+          required: true
+        },
+        isiKomentar: {
+          type: String,
+          required: true
+        },
+        tglKomentar: {
+          type: String,
+          default: Date.now
+        }
+    }]
 })
 
 module.exports = mongoose.model('News',NewsSchema)
