@@ -3,6 +3,10 @@ const router = express();
 const News = require('../models/news')
 const middlewareValidation = require('./middleware')
 
+const date = new Date();
+const options = {timeZone: 'Asia/Jakarta', hour12: false};
+const time = date.toLocaleString("id-ID", options);
+
 //CREATE
 router.post("/", middlewareValidation, async (req, res) => {
     const newNewsPost = new News({
@@ -12,6 +16,7 @@ router.post("/", middlewareValidation, async (req, res) => {
         isiBerita: req.body.isiBerita,
         tag: req.body.tag,
         tayang: 0,
+        komentar: []
     })
 
     try {
@@ -21,6 +26,32 @@ router.post("/", middlewareValidation, async (req, res) => {
         res.json({message: error})
     }
 });
+
+// POST KOMENTAR
+router.post("/:id/komentar", async (req, res) => {
+    try {
+        // Find the news by its ID
+        const news = await News.findById(req.params.id);
+        // Check if the news exists
+        if (!news) {
+            return res.status(404).json({ message: "News not found" });
+        }
+        // Add the new comment to the news's comments array
+        news.komentar.push({
+            nama: req.body.nama,
+            isiKomentar: req.body.isiKomentar,
+            tglKomentar: time
+        });
+        // Save the news to the database
+        await news.save();
+        // Send a success response
+        res.json({ message: "Comment added successfully" });
+    } catch (error) {
+        // Send an error response
+        res.status(500).json({ message: error.message });
+    }
+});
+
 
 //READ
 router.get("/", async (req,res)=>{
